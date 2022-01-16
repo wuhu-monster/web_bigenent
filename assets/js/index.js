@@ -1,23 +1,6 @@
 $(function () {
   getdata()
-  function getdata() {
-    $.ajax({
-      type: 'GET',
-      url: '/my/userinfo',
-      success: function (res) {
-        if (res.status !== 0) {
-          return layui.layer.msg('获取失败')
-        }
-        console.log(res);
-        xuandata(res.data)
-      },
-      // complete : function(res){
-      //   console.log('执行了回调');
-      //   console.log(res);
-        
-      // }
-    })
-  }
+ 
 let layer = layui.layer;
 $('#btnexit').on('click',function(){
   layer.confirm('确认退出吗？', {icon: 3, title:'提示'}, function(index){
@@ -27,6 +10,24 @@ $('#btnexit').on('click',function(){
   });
 })
 })
+function getdata() {
+  $.ajax({
+    type: 'GET',
+    url: '/my/userinfo',
+    success: function (res) {
+      if (res.status !== 0) {
+        return layui.layer.msg('获取失败')
+      }
+      // console.log(res);
+      xuandata(res.data)
+    },
+    // complete : function(res){
+    //   console.log('执行了回调');
+    //   console.log(res);
+      
+    // }
+  })
+}
 function xuandata(res){
   let name = res.nickname ||res.username
   $('.welcome').html('欢迎 &nbsp;&nbsp;'+name)

@@ -8,8 +8,8 @@ $(function () {
     }
 
   })
-  getdata ()
-  function getdata (){
+  getdata1 ()
+  function getdata1 (){
     $.ajax({
       type:'GET',
       url:'/my/userinfo',
@@ -31,7 +31,7 @@ $(function () {
   }
   $('#resct').on('click',function(e){
     e.preventDefault()
-    getdata ()
+    getdata1 ()
   })
 
   $('.layui-form').on('submit',function(e){
